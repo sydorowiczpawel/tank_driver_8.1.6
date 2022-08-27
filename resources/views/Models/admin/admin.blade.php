@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <div>
-    <a href="all_soldiers"><button class="btn btn-warning btn-sm" type="button">Soldiers</button></a>
+    <a href="all_soldiers"><button class="btn btn-outline-warning btn-sm" type="button">Soldiers</button></a>
     <a href="all_tanks"><button class="btn btn-outline-warning btn-sm">Tanks</button></a>
     <a href="all_documents"><button class="btn btn-outline-warning btn-sm">Documents</button></a>
     <a href="addUser">

@@ -28,7 +28,7 @@
     @foreach($commander as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -59,7 +59,7 @@
     @foreach($boss as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -90,7 +90,7 @@
     @foreach($technician as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -121,7 +121,7 @@
     @foreach($gun_technician as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -155,7 +155,7 @@
     @foreach($p1_c as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -186,7 +186,7 @@
     {{-- pomocnik dowódcy plutonu --}}
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -217,7 +217,7 @@
     @foreach($p1_od as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -248,7 +248,7 @@
     @foreach($p1_d as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -282,7 +282,7 @@
     @foreach($p2_c as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -313,7 +313,7 @@
     @foreach($p2_pdp as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -344,7 +344,7 @@
     @foreach($p2_od as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -409,7 +409,7 @@
     @foreach($p3_c as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -440,7 +440,7 @@
     @foreach($p3_pdp as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -471,7 +471,7 @@
     @foreach($p3_od as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -502,7 +502,7 @@
     @foreach($p3_d as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -536,7 +536,7 @@
     @foreach($p4_c as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -567,7 +567,7 @@
     @foreach($p4_pdp as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -598,7 +598,7 @@
     @foreach($p4_od as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
@@ -629,7 +629,7 @@
     @foreach($p4_d as $object)
     <tr>
       <td>{{ $object -> pass_number }}</td>
-      <td>{{ $object -> rank }} {{ $object -> name }} {{ $object -> surname }}</td>
+      <td>{{ $object -> rank }} {{ $object -> firstName }} {{ $object -> lastName }}</td>
       <td>{{ $object -> function }}</td>
       <td>{{ $object -> platoon }}</td>
       <td>
