@@ -11,10 +11,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ADMIN
-Route::get('/admin', [App\Http\Controllers\adminController::class, 'index']);
-Route::get('/a_documents', [App\Http\Controllers\adminController::class, 'allDocs']);
-Route::get('/a_users', [App\Http\Controllers\adminController::class, 'all_users']);
-Route::get('/a_tanks', [App\Http\Controllers\adminController::class, 'allTanks']);
+Route::get('/admin', [App\Http\Controllers\UserController::class, 'structure']);
+Route::get('/all_documents', [App\Http\Controllers\UserController::class, 'allDocs']);
+Route::get('/all_soldiers', [App\Http\Controllers\UserController::class, 'all_users']);
+Route::get('/all_tanks', [App\Http\Controllers\UserController::class, 'allTanks']);
+Route::get('/all_departure_orders', [App\Http\Controllers\UserController::class, 'allDepartureOrders']);
 
 // TANK
 Route::get('/tankslst/{pass_number}', [App\Http\Controllers\TankController::class, 'index']);
