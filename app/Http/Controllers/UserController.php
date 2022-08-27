@@ -247,4 +247,9 @@ class UserController extends Controller
         ->with('p4_d', $p4_d)
         ;
     }
+
+    public function adminPanel()
+    {
+        return view('Models/admin.admin');
+    }
 }

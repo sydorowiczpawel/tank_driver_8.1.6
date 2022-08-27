@@ -14,6 +14,27 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 
 <!-- Styles -->
+<style>
+  .box_01
+  {
+    /* position: absolute;  */
+    width: 700px;
+    height: 500px;
+    left: 333px;
+    top: 134px;
+    background: #161C28;
+  }
+
+  .box_02
+  {
+    /* position: absolute; */
+    width: 695px;
+    height: 495px;
+    left: 335px;
+    top: 136px;
+  }
+
+</style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>

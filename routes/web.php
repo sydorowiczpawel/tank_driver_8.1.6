@@ -11,10 +11,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ADMIN
-Route::get('/admin', [App\Http\Controllers\UserController::class, 'structure']);
+Route::get('/admin', [App\Http\Controllers\UserController::class, 'adminPanel']);
 Route::get('/all_documents', [App\Http\Controllers\UserController::class, 'allDocs']);
 Route::get('/all_soldiers', [App\Http\Controllers\UserController::class, 'all_users']);
-Route::get('/all_tanks', [App\Http\Controllers\UserController::class, 'allTanks']);
+Route::get('/all_tanks', [App\Http\Controllers\TankController::class, 'show']);
 Route::get('/all_departure_orders', [App\Http\Controllers\UserController::class, 'allDepartureOrders']);
 
 // TANK

@@ -47,9 +47,13 @@ class TankController extends Controller
         return redirect('/a_tanks');
     }
 
-    public function show($id)
+    public function show()
     {
-        //
+        $tanks = DB::table('tanks')
+        -> get();
+
+        return view('Models/tank.tankslst')
+        -> with('tanks', $tanks);
     }
 
     public function edit($id)
