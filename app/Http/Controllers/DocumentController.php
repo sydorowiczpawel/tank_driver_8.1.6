@@ -21,9 +21,9 @@ class DocumentController extends Controller
         return view('/Models/document.addDoc');
     }
 
-    public function store(Request $request, $p_num)
+    public function store(Request $request)
     {
-        $pass_number = $p_num;
+        $pass_number = $request -> input('pass_number');
 		$name = $request->input('name');
 		$number = $request->input('number');
 		$start_date = $request->input('start_date');
@@ -40,7 +40,7 @@ class DocumentController extends Controller
 			]
 		);
 
-		return redirect('/home');
+		return redirect('/all_documents');
     }
 
     public function show($pass_number)
@@ -92,4 +92,13 @@ class DocumentController extends Controller
 
 		return redirect("/home");
     }
+
+	public function all_docs()
+	{
+		$documents = DB::table('documents')
+		->get();
+
+		return view('Models/document.all_documents')
+		-> with ('documents', $documents);
+	}
 }

@@ -78,37 +78,41 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('/Models/soldiers.editSoldier') -> with ('user', $user);
+        $user = DB::table('users')
+        -> where ('id', $id)
+        ->get();
+
+        return view('/Models/soldier.editSoldier')
+        -> with('user', $user);
     }
 
     public function update(Request $request, $id)
     {
-        $p_num = $request->input('pass_number');
+        // $p_num = $request->input('pass_number');
         $r = $request->input('rank');
-        $n = $request->input('firstName');
-        $s = $request->input('lastame');
+        // $n = $request->input('firstName');
+        // $s = $request->input('lastame');
         $f = $request->input('function');
         $p = $request->input('platoon');
-        $e = $request->input('email');
-        $pswd = $request->input('password');
+        // $e = $request->input('email');
+        // $pswd = $request->input('password');
 
         DB::table('users')
         ->where('id', $id)
         ->update(
             [
-                'pass_number'=>$p_num,
+                // 'pass_number'=>$p_num,
                 'rank'=>$r,
-                'firstName'=>$n,
-                'lastName'=>$s,
+                // 'firstName'=>$n,
+                // 'lastName'=>$s,
                 'function' => $f,
                 'platoon'=>$p,
-                'email'=>$e,
-                'password'=>$pswd
+                // 'email'=>$e,
+                // 'password'=>$pswd
             ]
             );
 
-            return redirect('/a_soldiers');
+            return redirect('/all_soldiers');
     }
 
     public function destroy($id)

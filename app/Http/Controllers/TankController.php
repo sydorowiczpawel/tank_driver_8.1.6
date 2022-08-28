@@ -22,12 +22,11 @@ class TankController extends Controller
 
     public function create()
     {
-        $soldier = DB::table('users')
-        ->orderBy('lastame')
-        ->get();
+        $users = DB::table('users')
+        -> get();
 
-        return view('Models\tank.addTank')
-        ->with('soldier', $soldier);
+        return view('Models/tank.addTank')
+        -> with('users', $users);
     }
 
     public function store(Request $request)
@@ -35,7 +34,6 @@ class TankController extends Controller
         $pass_number = $request->input('pass_number');
         $model = $request->input('model');
         $number = $request->input('tank_number');
-        // $driver = $request->input('tutaj bedzie wywalac blad bo program chce numer przepustki a dostaje nazwisko kierowcy');
 
         DB::table('tanks')
         ->insert([
@@ -44,15 +42,15 @@ class TankController extends Controller
             'tank_number'=>$number
             ]
         );
-        return redirect('/a_tanks');
+        return redirect('/all_tanks');
     }
 
-    public function show()
+    public function all_tanks()
     {
         $tanks = DB::table('tanks')
         -> get();
 
-        return view('Models/tank.tankslst')
+        return view('Models/tank.all_tanks')
         -> with('tanks', $tanks);
     }
 
