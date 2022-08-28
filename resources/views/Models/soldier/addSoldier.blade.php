@@ -9,7 +9,7 @@
           <form method="POST" action="/soldierStore">
             @csrf
 
-              <!-- Type pass number -->
+<!-- pass number -->
               <div class="form-group row">
                 <label for="pass_number" class="col-md-4 col-form-label text-md-right">{{ __('Pass number') }}</label>
                 <div class="col-md-6">
@@ -20,7 +20,7 @@
                 </div>
               </div>
 
-              <!-- Type rank -->
+<!-- Type rank -->
               <div class="form-group row">
                 <label for="rank" class="col-md-4 col-form-label text-md-right">{{ __('Rank') }}</label>
 								<div class="col-md-6">
@@ -47,22 +47,24 @@
                   </select>
                 </div>
               </div>
-              <!-- Type name -->
+
+<!-- Type name -->
               <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>
                 <div class="col-md-6">
-                  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                  @error('name')
+                  <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
+                  @error('firstName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                   @enderror
                 </div>
               </div>
-              <!-- Type surname -->
+
+<!-- Type surname -->
               <div class="form-group row">
-                <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+                <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('Last name') }}</label>
                 <div class="col-md-6">
-                  <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
-                  @error('surname')
+                  <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
+                  @error('lastName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                   @enderror
                 </div>

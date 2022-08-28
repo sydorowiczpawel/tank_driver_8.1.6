@@ -20,10 +20,12 @@ Route::get('/all_departure_orders', [App\Http\Controllers\UserController::class,
 // TANK
 Route::get('/tankslst/{pass_number}', [App\Http\Controllers\TankController::class, 'index']);
 Route::get('/addTank', [App\Http\Controllers\TankController::class, 'create']);
-Route::get('/editUser/{id}', [App\Http\Controllers\UserController::class, 'edit']);
-Route::post('/updateuser/{id}', [App\Http\Controllers\userController::class, 'update']);
+Route::get('/showTank/{tank_number}', [App\Http\Controllers\TankController::class, 'show']);
 Route::post('/tankStore/', [App\Http\Controllers\TankController::class, 'store']);
-Route::delete('/deleteuser/{id}', [App\Http\Controllers\userController::class, 'destroy']);
+
+// Route::get('/editUser/{id}', [App\Http\Controllers\UserController::class, 'edit']);
+// Route::post('/updateuser/{id}', [App\Http\Controllers\userController::class, 'update']);
+// Route::delete('/deleteuser/{id}', [App\Http\Controllers\userController::class, 'destroy']);
 
 // USER
 Route::get('/personalFile/{pass_number}', [App\Http\Controllers\UserController::class, 'index']);
@@ -31,8 +33,11 @@ Route::get('/personalFile/{pass_number}', [App\Http\Controllers\UserController::
 Route::get('/addUser', [App\Http\Controllers\UserController::class, 'create']);
 Route::get('/editSoldier/{id}', [App\Http\Controllers\UserController::class, 'edit']);
 Route::post('/updateSoldier/{id}', [App\Http\Controllers\UserController::class, 'update']);
-Route::post('/userStore', [App\Http\Controllers\UserController::class, 'store']);
+Route::post('/soldierStore', [App\Http\Controllers\UserController::class, 'store']);
 Route::delete('/deleteUser/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::get('/waitingForApproval', function() {return view ('Models/soldier.waiting');});
+Route::get('/wfa', [App\Http\Controllers\UserController::class, 'wfa']);
+
 
 // DOCS
 Route::get('userDocs/{pass_number}', [App\Http\Controllers\DocumentController::class, 'show']);

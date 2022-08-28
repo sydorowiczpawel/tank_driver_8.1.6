@@ -54,6 +54,16 @@ class TankController extends Controller
         -> with('tanks', $tanks);
     }
 
+    public function show($number)
+    {
+        $tank = DB::table('tanks')
+        ->where ('tank_number', $number)
+        ->get();
+
+        return view('Models/tank.showTank')
+        ->with('tank', $tank);
+    }
+
     public function edit($id)
     {
         //

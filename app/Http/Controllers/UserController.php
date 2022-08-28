@@ -68,7 +68,7 @@ class UserController extends Controller
             ]
             );
 
-            return redirect('/a_soldiers');
+            return redirect('/all_soldiers');
     }
 
     public function show($id)
@@ -88,7 +88,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $p_num = $request->input('pass_number');
+        $p_num = $request->input('pass_number');
         $r = $request->input('rank');
         // $n = $request->input('firstName');
         // $s = $request->input('lastame');
@@ -101,7 +101,7 @@ class UserController extends Controller
         ->where('id', $id)
         ->update(
             [
-                // 'pass_number'=>$p_num,
+                'pass_number'=>$p_num,
                 'rank'=>$r,
                 // 'firstName'=>$n,
                 // 'lastName'=>$s,
@@ -227,6 +227,10 @@ class UserController extends Controller
         ->where ('function', 'kierowca')
         ->get();
 
+        $notVerified = DB::table('users')
+        ->where('pass_number', NULL)
+        ->get();
+
 
         return view('Models/soldier.all_soldiers')
         ->with('commander', $commander)
@@ -249,6 +253,7 @@ class UserController extends Controller
         ->with('p4_pdp', $p4_pdp)
         ->with('p4_od', $p4_od)
         ->with('p4_d', $p4_d)
+        ->with('notVerified', $notVerified)
         ;
     }
 

@@ -10,11 +10,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pass_number')->unique();
-            $table->string('rank');
+            $table->string('pass_number')->unique()->nullable();
+            $table->string('rank')->nullable();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('function');
+            $table->string('function')->nullable();
             $table->string('platoon')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

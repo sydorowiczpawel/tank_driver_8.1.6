@@ -42,28 +42,25 @@
     <div class="container">
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
 <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
 
 <!-- Authentication Links -->
             @guest
             @if (Route::has('login'))
-            <li class="nav-item">
-              {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> --}}
-            </li>
+              <li class="nav-item">
+                {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> --}}
+              </li>
             @endif
-
 						@if (Route::has('register'))
               <li class="nav-item">
                 {{-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> --}}
               </li>
             @endif
-
 						@else
               <li>
                 <button class="btn btn-outline-danger" href="/logout" onclick="event.preventDefault()
-                  document.getElementById('logout-form').submit()">Wyloguj
+                document.getElementById('logout-form').submit()">Wyloguj
                 </button>
                 <form id="logout-form" action="/logout" method="POST" class="d-none">
                   @csrf
@@ -77,14 +74,14 @@
                 @endif
               </li>
             @endguest
-            </ul>
-          </div>
+          </ul>
         </div>
-      </nav>
-		</div>
-    <main class="py-4">
-      @yield('content')
-    </main>
-  </div>
+      </div>
+    </nav>
+	</div>
+  <main class="py-4">
+    @yield('content')
+  </main>
+</div>
 </body>
 </html>
