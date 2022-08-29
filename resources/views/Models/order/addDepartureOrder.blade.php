@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<form method="POST" action="/exitorderstore/{{ Auth::user()->pass_number}}">
+	<form method="POST" action="/departure_order_store/{{ Auth::user()->pass_number}}">
 		@csrf
 		<div class="form-group row">
 			<label for="tank_number" class="col-md-4 col-form-label text-md-right">{{ __('Tank number') }}</label>
@@ -14,7 +14,8 @@
 				</select>
     </div>
 		</div>
-		<!-- Type series -->
+
+<!-- Order series -->
 		<div class="form-group row">
 			<label for="series" class="col-md-4 col-form-label text-md-right">{{ __('Seria i numer rozkazu') }}</label>
 			<div class="col-md-6">
@@ -24,7 +25,8 @@
         @enderror
 			</div>
     </div>
-		<!-- Type start_date -->
+
+<!-- Order start_date -->
 		<div class="form-group row">
 			<label for="start_date" class="col-md-4 col-form-label text-md-right">{{ __('Data rozpoczęcia') }}</label>
       <div class="col-md-6">
@@ -34,7 +36,8 @@
         @enderror
       </div>
     </div>
-		<!-- Type end_date -->
+
+<!-- Order end_date -->
     <div class="form-group row">
       <label for="end_date" class="col-md-4 col-form-label text-md-right">{{ __('Data wygaśnięcia') }}</label>
       <div class="col-md-6">
@@ -44,37 +47,41 @@
         @enderror
       </div>
     </div>
-		<!-- Type km_start-->
+
+<!-- Order km_start-->
 		<div class="form-group row">
-			<label for="km_start" class="col-md-4 col-form-label text-md-right">{{ __('Początkowy licznik kilometrów') }}</label>
+			<label for="odometer_start" class="col-md-4 col-form-label text-md-right">{{ __('Początkowy licznik kilometrów') }}</label>
       <div class="col-md-6">
-        <input id="km_start" type="text" class="form-control @error('km_start') is-invalid @enderror" name="km_start" value="0000.00">
+        <input id="odometer_start" type="text" class="form-control @error('km_start') is-invalid @enderror" name="odometer_start" value="0000.00">
         @error('km_start')
           <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
       </div>
     </div>
-		<!-- Type geh_start-->
+
+<!-- Order general operating hours start-->
     <div class="form-group row">
-      <label for="geh_start" class="col-md-4 col-form-label text-md-right">{{ __('Początkowy licznik motogodzin ogólnych') }}</label>
+      <label for="goh_start" class="col-md-4 col-form-label text-md-right">{{ __('General operating hours') }}</label>
       <div class="col-md-6">
-        <input id="geh_start" type="text" class="form-control @error('geh_start') is-invalid @enderror" name="geh_start" value="0000.00">
-        @error('geh_start')
+        <input id="goh_start" type="text" class="form-control @error('goh_start') is-invalid @enderror" name="goh_start" value="0000.00">
+        @error('goh_start')
           <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
       </div>
     </div>
-		<!-- Type leh_start-->
+
+<!-- Order work hours start-->
     <div class="form-group row">
-      <label for="leh_start" class="col-md-4 col-form-label text-md-right">{{ __('Początkowy licznik motogodzin obciążonych') }}</label>
+      <label for="wh_start" class="col-md-4 col-form-label text-md-right">{{ __('Working hours') }}</label>
       <div class="col-md-6">
-        <input id="leh_start" type="text" class="form-control @error('leh_start') is-invalid @enderror" name="leh_start" value="0000.00">
-        @error('leh_start')
+        <input id="wh_start" type="text" class="form-control @error('wh_start') is-invalid @enderror" name="wh_start" value="0000.00">
+        @error('wh_start')
           <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
       </div>
     </div>
-	<!-- Register Button -->
+
+<!-- Register Button -->
   <div>
     <button type="submit" class="btn btn-success btn-sm">{{ __('Dodaj') }}</button>
     </form>

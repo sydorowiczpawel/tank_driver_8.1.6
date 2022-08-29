@@ -26,14 +26,14 @@ class UserController extends Controller
         ->orderBy('end_date', 'desc')
         ->get();
 
-        $eos = DB::table('departure_orders')
+        $dep_orders = DB::table('departure_orders')
         ->where('pass_number', $p_num)
         ->orderBy('end_date', 'desc')
         ->get();
 
         return view('/Models/soldier.personalFile')
         ->with('docs', $docs)
-        ->with('eos', $eos)
+        ->with('dep_orders', $dep_orders)
         ->with('user', $user)
         ->with('tanks', $tank);
     }

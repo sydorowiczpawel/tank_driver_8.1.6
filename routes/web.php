@@ -52,7 +52,7 @@ Route::get('/deletedoc/{id}', [App\Http\Controllers\DocumentController::class, '
 Route::get('/allDepartureOrders/{pass_number}', [App\Http\Controllers\OrderController::class, 'index']);
 Route::get('/selectedTankOrders/{tank_number}', [App\Http\Controllers\OrderController::class, 'showSelected']);
 Route::get('/addDepartureOrder/{pass_number}', [App\Http\Controllers\OrderController::class, 'create']);
-Route::post('/orderStore/{pass_number}', [App\Http\Controllers\OrderController::class, 'neworder']);
-Route::get('/editOrder/{id}', [App\Http\Controllers\OrderController::class, 'edit']);
+Route::post('/departure_order_store/{pass_number}', [App\Http\Controllers\OrderController::class, 'store']);
+Route::get('/edit_departure_order/{id}', [App\Http\Controllers\OrderController::class, 'edit']);
 Route::post('/finishOrder/{id}', [App\Http\Controllers\OrderController::class, 'finish']);
 Route::get('/orderDetails/{id}', [App\Http\Controllers\OrderController::class, 'show']);

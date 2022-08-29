@@ -13,12 +13,12 @@ class OrderController extends Controller
 {
     public function index($p_num)
     {
-        $eos = DB::table('departure_orders')
+        $dep_orders = DB::table('departure_orders')
 		-> where('pass_number', $p_num)
 		-> get();
 
 		return view('/Models/order.allDepartureOrders')
-		-> with('eos', $eos);
+		-> with('dep_orders', $dep_orders);
 	}
 
     public function create($p_num)
@@ -31,18 +31,18 @@ class OrderController extends Controller
 		-> with('tanks', $tanks);
     }
 
-    public function neworder(Request $request, $p_num) {
+    public function store(Request $request, $p_num) {
 
-		$pass_number = $p_num;
+	$pass_number = $p_num;
     $tank_number = $request->input('tank_number');
     $series = $request->input('series');
     $start_date = $request->input('start_date');
     $end_date = $request->input('end_date');
     $km_s = $request->input('odometer_start');
-    $geh_s = $request->input('goh_start');
-    $leh_s = $request->input('wh_start');
+    $goh_s = $request->input('goh_start');
+    $wh_s = $request->input('wh_start');
 
-		DB::table("exit_orders")
+		DB::table("departure_orders")
 		->insert(
             [
                 'pass_number'=>$pass_number,
@@ -51,18 +51,13 @@ class OrderController extends Controller
                 'start_date'=>$start_date,
                 'end_date'=>$end_date,
                 'odometer_start' => $km_s,
-                'goh_start' => $geh_s,
-                'wh_start' => $leh_s,
+                'goh_start' => $goh_s,
+                'wh_start' => $wh_s,
                 ]
             );
 
-    return redirect('/home');
+    return redirect('/');
 	}
-
-    public function store(Request $request)
-    {
-        //
-    }
 
     public function show($id)
     {
@@ -77,9 +72,9 @@ class OrderController extends Controller
 
     public function edit($id)
     {
-        $eo = DepartureOrder::find($id);
+        $dep_order = DepartureOrder::find($id);
 
-		return view('Models/order.editexitorder')->with('eo', $eo);
+		return view('Models/order.edit_departure_order')->with('dep_order', $dep_order);
     }
 
     public function update(Request $request, $id)
