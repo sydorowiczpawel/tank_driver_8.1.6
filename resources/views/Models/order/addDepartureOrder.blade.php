@@ -30,7 +30,7 @@
 		<div class="form-group row">
 			<label for="start_date" class="col-md-4 col-form-label text-md-right">{{ __('Data rozpoczęcia') }}</label>
       <div class="col-md-6">
-        <input id="start_date" type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" value="YYYY-MM-DD">
+        <input id="start_date" type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" placeholder="YYYY-MM-DD">
         @error('start_date')
           <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror
@@ -41,7 +41,7 @@
     <div class="form-group row">
       <label for="end_date" class="col-md-4 col-form-label text-md-right">{{ __('Data wygaśnięcia') }}</label>
       <div class="col-md-6">
-        <input id="end_date" type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" value="YYYY-MM-DD">
+        <input id="end_date" type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" placeholder="YYYY-MM-DD">
 				@error('end_date')
           <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
         @enderror

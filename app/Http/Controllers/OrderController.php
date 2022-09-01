@@ -56,18 +56,20 @@ class OrderController extends Controller
                 ]
             );
 
-    return redirect('/');
+    return redirect('/allDepartureOrders/');
 	}
 
     public function show($id)
     {
-        $tanks = Tank::all();
-		$eos = DB::table('departure_orders')
+        // $tanks = DB::table('tanks')
+        // -> where();
+
+		$departure_order = DB::table('departure_orders')
 		->where('id', $id)
 		->get();
 		$users = User::all();
 
-    return view('/Models/order.orderDetails') -> with('eos', $eos);
+    return view('/Models/order.departure_order_details') -> with('dep_order', $departure_order);
     }
 
     public function edit($id)

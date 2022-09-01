@@ -23,13 +23,8 @@ Route::get('/addTank', [App\Http\Controllers\TankController::class, 'create']);
 Route::get('/showTank/{tank_number}', [App\Http\Controllers\TankController::class, 'show']);
 Route::post('/tankStore/', [App\Http\Controllers\TankController::class, 'store']);
 
-// Route::get('/editUser/{id}', [App\Http\Controllers\UserController::class, 'edit']);
-// Route::post('/updateuser/{id}', [App\Http\Controllers\userController::class, 'update']);
-// Route::delete('/deleteuser/{id}', [App\Http\Controllers\userController::class, 'destroy']);
-
 // USER
 Route::get('/personalFile/{pass_number}', [App\Http\Controllers\UserController::class, 'index']);
-// Route::get('/personalFile/{pass_number}', [App\Http\Controllers\TankController::class, 'show']);
 Route::get('/addUser', [App\Http\Controllers\UserController::class, 'create']);
 Route::get('/editSoldier/{id}', [App\Http\Controllers\UserController::class, 'edit']);
 Route::post('/updateSoldier/{id}', [App\Http\Controllers\UserController::class, 'update']);
@@ -54,5 +49,10 @@ Route::get('/selectedTankOrders/{tank_number}', [App\Http\Controllers\OrderContr
 Route::get('/addDepartureOrder/{pass_number}', [App\Http\Controllers\OrderController::class, 'create']);
 Route::post('/departure_order_store/{pass_number}', [App\Http\Controllers\OrderController::class, 'store']);
 Route::get('/edit_departure_order/{id}', [App\Http\Controllers\OrderController::class, 'edit']);
-Route::post('/finishOrder/{id}', [App\Http\Controllers\OrderController::class, 'finish']);
-Route::get('/orderDetails/{id}', [App\Http\Controllers\OrderController::class, 'show']);
+Route::post('/finish_order/{id}', [App\Http\Controllers\OrderController::class, 'finish']);
+Route::get('/departure_order_details/{id}', [App\Http\Controllers\OrderController::class, 'show']);
+
+// Route::get('/editUser/{id}', [App\Http\Controllers\UserController::class, 'edit']);
+// Route::post('/updateuser/{id}', [App\Http\Controllers\userController::class, 'update']);
+// Route::delete('/deleteuser/{id}', [App\Http\Controllers\userController::class, 'destroy']);
+// Route::get('/personalFile/{pass_number}', [App\Http\Controllers\TankController::class, 'show']);
