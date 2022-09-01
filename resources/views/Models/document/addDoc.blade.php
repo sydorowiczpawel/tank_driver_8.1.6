@@ -15,7 +15,7 @@
             <div class="form-group row">
               <label for="pass_number" class="col-md-4 col-form-label text-md-right">{{ __('Numer przepustki') }}</label>
               <div class="col-md-6">
-                <input id="pass_number" type="text" class="form-control @error('pass_number') is-invalid @enderror" name="pass_number" required autocomplete="pass_number" autofocus>
+                <input id="pass_number" type="text" class="form-control @error('pass_number') is-invalid @enderror" name="pass_number" required autocomplete="pass_number" autofocus value="{{ Auth::user() -> pass_number }}">
                 @error('pass_number')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                             <label for="start_date" class="col-md-4 col-form-label text-md-right">{{ __('Data rozpoczęcia') }}</label>
 
                             <div class="col-md-6">
-                                <input id="start_date" type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" value="YYYY-MM-DD" required autocomplete="start_date" autofocus>
+                                <input id="start_date" type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" placeholder="YYYY-MM-DD" required autocomplete="start_date" autofocus>
 
                                 @error('start_date')
                                     <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                             <label for="end_date" class="col-md-4 col-form-label text-md-right">{{ __('Data wygaśnięcia') }}</label>
 
                             <div class="col-md-6">
-                                <input id="end_date" type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" value="YYYY-MM-DD" required autocomplete="end_date" autofocus>
+                                <input id="end_date" type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" placeholder="YYYY-MM-DD" required autocomplete="end_date" autofocus>
 
                                 @error('end_date')
                                     <span class="invalid-feedback" role="alert">
