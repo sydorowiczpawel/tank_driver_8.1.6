@@ -38,6 +38,11 @@ class UserController extends Controller
         ->with('tanks', $tank);
     }
 
+    public function undefined_user()
+    {
+        return view('/Models/soldier.personalFile');
+    }
+
     public function create()
     {
         return view('Models/soldier.addSoldier');

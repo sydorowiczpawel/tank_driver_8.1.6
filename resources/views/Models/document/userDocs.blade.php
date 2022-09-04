@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">{{  Auth::user() -> pass_number }}</a>
@@ -25,7 +26,8 @@
   </div>
 </nav>
 
-<div class="container">
+@if(Auth::user()->pass_number !== NULL )
+
 <div>
     <a href="/adddoc/">
       <button class="btn btn-warning btn-sm">
@@ -88,5 +90,14 @@
       <td></td>
     </tr>
 	</table>
+  @else
+  <table class="table table-sm">
+    <thead class="table-dark">
+      <tr>
+        <th style="text-align: center">Twoje konto nie zostało jeszcze zweryfikowane przez administratora. Daj mu chwilę, jest zarobiony ;)</th>
+      </tr>
+    </thead>
+  </table>
+  @endif
 </div>
 @endsection

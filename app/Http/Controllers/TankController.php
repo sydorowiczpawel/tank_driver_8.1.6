@@ -20,6 +20,11 @@ class TankController extends Controller
         return view('Models\tank.tankslst')->with('tanks', $tanks);
     }
 
+    public function undefined_user()
+    {
+        return view('Models\tank.tankslst');
+    }
+
     public function create()
     {
         $users = DB::table('users')

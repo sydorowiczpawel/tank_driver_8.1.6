@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+<div class="container">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">{{  Auth::user() -> pass_number }}</a>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="container">
+@if(Auth::user()->pass_number !== NULL )
 	<table class="table table-striped table-sm">
     <tr>
       <th>Model</th>
@@ -56,5 +56,14 @@
     </tr>
 		@endforeach
 	</table>
+  @else
+  <table class="table table-sm">
+    <thead class="table-dark">
+      <tr>
+        <th style="text-align: center">Twoje konto nie zostało jeszcze zweryfikowane przez administratora. Daj mu chwilę, jest zarobiony ;)</th>
+      </tr>
+    </thead>
+  </table>
+  @endif
 </div>
 @endsection

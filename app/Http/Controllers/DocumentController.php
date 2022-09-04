@@ -16,6 +16,11 @@ class DocumentController extends Controller
 		return view('/home')->with('docs', $docs);
     }
 
+	public function undefined_user()
+	{
+		return view('/Models/document.userDocs');
+	}
+
     public function create()
     {
         return view('/Models/document.addDoc');

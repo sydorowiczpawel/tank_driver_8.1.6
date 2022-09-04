@@ -21,6 +21,13 @@ class OrderController extends Controller
 		-> with('dep_orders', $dep_orders);
 	}
 
+    public function undefined_user()
+    {
+        $mssg = "Twoje konto nie zostało jeszcze zweryfikowane przez administratora. Daj mu chwilę, jest zarobiony ;)";
+        return view('Models\order.allDepartureOrders')
+        -> with('mssg', $mssg);
+    }
+
     public function create($p_num)
     {
         $tanks = DB::table('tanks')
@@ -31,16 +38,16 @@ class OrderController extends Controller
 		-> with('tanks', $tanks);
     }
 
-    public function store(Request $request, $p_num) {
-
-	$pass_number = $p_num;
-    $tank_number = $request->input('tank_number');
-    $series = $request->input('series');
-    $start_date = $request->input('start_date');
-    $end_date = $request->input('end_date');
-    $km_s = $request->input('odometer_start');
-    $goh_s = $request->input('goh_start');
-    $wh_s = $request->input('wh_start');
+    public function store(Request $request, $p_num)
+    {
+        $pass_number = $p_num;
+        $tank_number = $request->input('tank_number');
+        $series = $request->input('series');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+        $km_s = $request->input('odometer_start');
+        $goh_s = $request->input('goh_start');
+        $wh_s = $request->input('wh_start');
 
 		DB::table("departure_orders")
 		->insert(
@@ -56,7 +63,7 @@ class OrderController extends Controller
                 ]
             );
 
-    return redirect('/allDepartureOrders/');
+            return redirect('/allDepartureOrders/');
 	}
 
     public function show($id)
