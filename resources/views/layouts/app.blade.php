@@ -13,22 +13,17 @@
 <body>
   <div id="app">
     <div class="container">
-
-      
       @if(Auth::user())
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
+      <nav class="navbar navbar-expand-sm navbar-white bg-white">
+        {{-- <div class="container-fluid"> --}}
           <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto order-0 ">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><?php echo date("l ") . date("d-m-Y");?></a>
+                <a aria-current="page"><?php echo date("l ") . date("d-m-Y");?></a>
               </li>
             </ul>
             <div class="mx-auto">
-              <a class="navbar-brand " href="/personalFile/">{{ Auth::user() -> rank}} {{ Auth::user() -> firstName}} {{ Auth::user() -> lastName}}</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+              <a class="navbar-brand">{{ Auth::user() -> rank}} {{ Auth::user() -> firstName}} {{ Auth::user() -> lastName}}</a>
             </div>
             <div class="mx-auto">
           <button class="btn btn-outline-danger" href="/logout" onclick="event.preventDefault()
@@ -41,9 +36,8 @@
           @endif
         </div>
       </div>
-    </div>
+    {{-- </div> --}}
     @else
-    
     <div class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
