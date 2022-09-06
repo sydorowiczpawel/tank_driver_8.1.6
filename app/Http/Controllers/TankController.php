@@ -65,7 +65,7 @@ class TankController extends Controller
         ->where ('tank_number', $number)
         ->get();
 
-        return view('Models/tank.showTank')
+        return view('Models/tank.show_tank')
         ->with('tank', $tank);
     }
 

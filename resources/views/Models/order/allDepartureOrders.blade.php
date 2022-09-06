@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand">{{  Auth::user() -> pass_number }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
         <a class="nav-link" href="/personalFile/{{Auth::user()->pass_number}}">Home</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/userDocs/{{Auth::user()->pass_number}}">Documents</a>
+        <a class="nav-link" href="/user_documents/{{Auth::user()->pass_number}}">Documents</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/tankslst/{{Auth::user()->pass_number}}">Tanks</a>
@@ -23,7 +23,7 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav> --}}
 
 @if(Auth::user()->pass_number !== NULL )
 	<table class="table table-striped table-sm">

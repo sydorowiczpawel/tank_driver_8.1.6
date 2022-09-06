@@ -121,4 +121,16 @@ class OrderController extends Controller
     public function destroy($id){
         //
     }
+
+    public function showSelected($tank_number) {
+
+		$tank = DB::table('tanks')
+		->where('tank_number', $tank_number)
+		->get();
+		$orders = DB::table('departure_orders')
+		->where('tank_number', $tank_number)
+		->get();
+
+    return view('/Models/order.selected_tank_orders')->with('tank', $tank)->with('orders', $orders);
+    }
 }

@@ -2,8 +2,9 @@
 
 @section('content')
 
+<div class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">{{  Auth::user() -> pass_number }}</a>
+  <a class="navbar-brand">{{  Auth::user() -> pass_number }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,7 +26,6 @@
   </div>
 </nav>
 
-  <div class="container">
     @foreach($dep_order as $object)
 
     <?php
@@ -48,7 +48,7 @@
           </tr>
           <tr>
             <td>Data ważności</td>
-            <td>od {{$object -> start_date}} do {{$object -> end_date}}</td>
+            <td>{{$object -> start_date}} <---> {{$object -> end_date}}</td>
           </tr>
           <tr>
             <td>Licznik kilometrów</td>
@@ -83,37 +83,37 @@
   @endforeach
 
 <?php
-  $km = ($object->odometer_end - $object->odometer_start);
-  $mtgog = $object -> goh_end - $object -> goh_start;
-  $mtgobc = $object -> wh_end - $object -> wh_start;
+  $km = round(($object->odometer_end - $object->odometer_start), 1, PHP_ROUND_HALF_UP);
+  $mtgog = round(($object -> goh_end - $object -> goh_start), 1, PHP_ROUND_HALF_UP);
+  $mtgobc = round(($object -> wh_end - $object -> wh_start), 1, PHP_ROUND_HALF_UP);
   $fuel = round((($km * 3.1) + (($mtgog - $mtgobc) * 19)), 0, PHP_ROUND_HALF_DOWN);
 ?>
 
-<table class="table table-sm">
-  <thead class="table-dark">
-    <tr>
-      <th>Podsumowanie</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Przejechano</td>
-      <td>{{ $km }} kilometrów</td>
-    </tr>
-    <tr>
-      <td>Przepracowano</td>
-      <td>{{ $mtgog }} motogodzin ogólnych</td>
-    </tr>
-    <tr>
-      <td>Przepracowano</td>
-      <td>{{ $mtgobc }} motogodzin pod obciążeniem</td>
-    </tr>
-    <tr>
-      <td>Do zatankowania</td>
-      <td>{{ $fuel }} litrów</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>Podsumowanie</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Przejechano</td>
+        <td>{{ $km }} kilometrów</td>
+      </tr>
+      <tr>
+        <td>Przepracowano</td>
+        <td>{{ $mtgog }} motogodzin ogólnych</td>
+      </tr>
+      <tr>
+        <td>Przepracowano</td>
+        <td>{{ $mtgobc }} motogodzin pod obciążeniem</td>
+      </tr>
+      <tr>
+        <td>Do zatankowania</td>
+        <td>{{ $fuel }} litrów</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 @endsection

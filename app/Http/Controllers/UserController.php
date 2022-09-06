@@ -266,4 +266,31 @@ class UserController extends Controller
     {
         return view('Models/admin.admin');
     }
+
+    public function about_soldier($p_num)
+    {
+        $user = DB::table('users')
+        -> where('pass_number', $p_num)
+        -> get();
+
+        $tank = DB::table('tanks')
+        ->where('pass_number', $p_num)
+        ->get();
+
+        $docs = DB::table('documents')
+        ->where('pass_number', $p_num)
+        ->orderBy('end_date', 'desc')
+        ->get();
+
+        $dep_orders = DB::table('departure_orders')
+        ->where('pass_number', $p_num)
+        ->orderBy('end_date', 'desc')
+        ->get();
+
+        return view('/Models/admin.about_soldier')
+        ->with('documents', $docs)
+        ->with('dep_orders', $dep_orders)
+        ->with('user', $user)
+        ->with('tanks', $tank);
+    }
 }
