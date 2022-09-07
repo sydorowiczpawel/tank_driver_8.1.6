@@ -4,7 +4,7 @@
 <div class="container">
   @if(Auth::user()->pass_number !== NULL )
   <div>
-{{-- Tabela z rozkazami wyjazdu --}}
+{{-- Niezatankowane rozkazy wyjazdu --}}
   <table class="table table-sm">
     {{-- nagłówek --}}
     <thead class="table-dark">
@@ -49,6 +49,41 @@
         </button>
         </td>
         @endif
+      </tr>
+    </tbody>
+    @endif
+    @endforeach
+  </table>
+{{-- Dokumenty które wkrótce wygasną --}}
+  <table class="table table-sm">
+    {{-- nagłówek --}}
+    <thead class="table-dark">
+      <tr>
+        <th>Dokumenty z okresem ważności krótszym niż 30 dni</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <thead class="table-dark">
+      <tr>
+        <th>Seria/numer</th>
+        <th>Nazwa</th>
+        <th>Traci ważność za:</th>
+      </tr>
+    </thead>
+    @foreach($docs as $object)
+    <?php
+    $end = $object -> end_date;
+    $today = new DateTime(date("d-m-Y"));
+    $appt = new DateTime($end);
+    $expires = $appt -> diff($today)->days;
+    ?>
+    @if($expires <= 30)
+    <tbody>
+      <tr>
+        <td>{{ $object -> number }}</td>
+        <td>{{ $object -> name }}</td>
+        <td>{{ $expires }} dni</td>
       </tr>
     </tbody>
     @endif
