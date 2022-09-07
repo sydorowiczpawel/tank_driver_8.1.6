@@ -9,12 +9,7 @@
     {{-- nagłówek --}}
     <thead class="table-dark">
       <tr>
-        <th>Niezatankowane rozkazy wyjazdu</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Niezakończone rozkazy wyjazdu</th>
         <th></th>
         <th></th>
       </tr>
@@ -23,25 +18,16 @@
       <tr>
         <th>nr. rozkazu</th>
         <th>pojazd</th>
-        <th>data rozpoczęcia</th>
-        <th>data zakończenia</th>
-        <th>kilometry</th>
-        <th>mtg og</th>
-        <th>mtg obc</th>
         <th></th>
       </tr>
     </thead>
     @foreach($dep_orders as $order)
+    @if($order -> odometer_end === NULL)
     <tbody>
       <tr>
         <td>{{ $order -> series }}</td>
         <td>{{ $order -> tank_number }}</td>
-        <td>{{ $order -> start_date }}</td>
-        <td>{{ $order -> end_date }}</td>
         @if($order -> goh_end === NULL)
-        <td></td>
-        <td></td>
-        <td></td>
         <td>
           <button class="btn btn-warning btn-sm">
             <a href="/edit_departure_order/{{ $order -> id }}">
@@ -65,6 +51,7 @@
         @endif
       </tr>
     </tbody>
+    @endif
     @endforeach
   </table>
   @else

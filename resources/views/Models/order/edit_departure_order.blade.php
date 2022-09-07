@@ -117,7 +117,7 @@
                             <div>
                                 <button type="submit" class="btn btn-success">{{ __('Dodaj') }}</button>
                     </form>
-                                <a href="/exitorderslst"><button class="btn btn-primary">{{ __('Powrót') }}</button></a>
+                                <a href="/allDepartureOrders/{{ Auth::user() -> pass_number }}"><button class="btn btn-primary">{{ __('Powrót') }}</button></a>
                             </div>
                 </div>
 <div class="card">
