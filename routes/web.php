@@ -33,7 +33,7 @@ Route::get('/addUser', [App\Http\Controllers\UserController::class, 'create']);
 Route::get('/editSoldier/{id}', [App\Http\Controllers\UserController::class, 'edit']);
 Route::post('/updateSoldier/{id}', [App\Http\Controllers\UserController::class, 'update']);
 Route::post('/soldierStore', [App\Http\Controllers\UserController::class, 'store']);
-Route::delete('/deleteUser/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::get('/delete_user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 Route::get('/waitingForApproval', function() {return view ('Models/soldier.waiting');});
 Route::get('/wfa', [App\Http\Controllers\UserController::class, 'wfa']);
 
@@ -51,6 +51,7 @@ Route::get('/deletedoc/{id}', [App\Http\Controllers\DocumentController::class, '
 // DEP_ORERS
 Route::get('/allDepartureOrders/{pass_number}', [App\Http\Controllers\OrderController::class, 'index']);
 Route::get('/allDepartureOrders/', [App\Http\Controllers\OrderController::class, 'undefined_user']);
+Route::get('/all_departure_orders/', [App\Http\Controllers\OrderController::class, 'userOrdersList']);
 Route::get('/selected_tank_orders/{tank_number}', [App\Http\Controllers\OrderController::class, 'show_selected']);
 Route::get('/addDepartureOrder/{pass_number}', [App\Http\Controllers\OrderController::class, 'create']);
 Route::post('/departure_order_store/{pass_number}', [App\Http\Controllers\OrderController::class, 'store']);
