@@ -63,7 +63,7 @@ class OrderController extends Controller
                 ]
             );
 
-            return redirect('/allDepartureOrders/');
+            return redirect('/home');
 	}
 
     public function show($id)
@@ -122,7 +122,7 @@ class OrderController extends Controller
         //
     }
 
-    public function showSelected($tank_number) {
+    public function show_selected($tank_number) {
 
 		$tank = DB::table('tanks')
 		->where('tank_number', $tank_number)

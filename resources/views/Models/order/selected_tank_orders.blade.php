@@ -2,29 +2,7 @@
 
 @section('content')
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">{{  Auth::user() -> pass_number }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/personalFile/{{Auth::user()->pass_number}}">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/user_documents/{{Auth::user()->pass_number}}">Documents</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/tankslst/{{Auth::user()->pass_number}}">Tanks</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/allDepartureOrders/{{Auth::user()->pass_number}}">Departure orders</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-	@foreach($tank as $element)
+  @foreach($tank as $element)
 	{{-- Nagłówek tabeli --}}
 	<table class="table table-sm">
 		<thead>
@@ -47,22 +25,22 @@
 		{{-- Rekordy tabeli --}}
 		<tbody>
 			<tr>
-				@foreach($orders as $order)
-				<td>{{$order -> series }}</td>
-				<td>{{$order -> odometer_end }}</td>
-				<td>{{$order -> goh_end }}</td>
-				<td>{{$order -> wh_end }}</td>
+				@foreach($orders as $object)
+				<td>{{$object -> series }}</td>
+				<td>{{$object -> odometer_end }}</td>
+				<td>{{$object -> goh_end }}</td>
+				<td>{{$object -> wh_end }}</td>
 				<td>
-					@if($order -> wh_end === NULL)
+					@if($object -> wh_end === NULL)
 					{{-- Zakończ rozkaz wyjazdu --}}
-						<a href="/edit_departure_order/{{$order -> id}}">
+						<a href="/edit_departure_order/{{$object -> id}}">
 							<button type="button" class="btn btn-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg>
 							</button>
 						</a>
 					@else
 					{{-- Zobacz szczegóły --}}
-					<a href="/departure_order_details/{{$order->id}}">
+					<a href="/departure_order_details/{{$object->id}}">
 						<button class="btn btn-warning btn-sm">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
 						</button>

@@ -69,6 +69,21 @@ class TankController extends Controller
         ->with('tank', $tank);
     }
 
+    public function show_orders($t_num)
+    {
+        $tank = DB::table('tanks')
+        ->where ('tank_number', $t_num)
+        ->get();
+
+        $order = DB::table('departure_orders')
+        ->where('tank_number', $t_num)
+        ->get();
+
+        return view('Models/order.selected_tank_orders')
+        ->with('tank', $tank)
+        ->with('order', $order);
+    }
+
     public function edit($id)
     {
         //

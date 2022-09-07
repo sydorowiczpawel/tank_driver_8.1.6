@@ -24,6 +24,7 @@ Route::get('/tankslst/', [App\Http\Controllers\TankController::class, 'undefined
 Route::get('/addTank', [App\Http\Controllers\TankController::class, 'create']);
 Route::get('/show_tank/{tank_number}', [App\Http\Controllers\TankController::class, 'show']);
 Route::post('/tankStore/', [App\Http\Controllers\TankController::class, 'store']);
+Route::post('/selected_tank_orders/{tank_number}', [App\Http\Controllers\TankController::class, 'show_orders']);
 
 // USER
 Route::get('/personalFile/{pass_number}', [App\Http\Controllers\UserController::class, 'index']);
@@ -50,7 +51,7 @@ Route::get('/deletedoc/{id}', [App\Http\Controllers\DocumentController::class, '
 // DEP_ORERS
 Route::get('/allDepartureOrders/{pass_number}', [App\Http\Controllers\OrderController::class, 'index']);
 Route::get('/allDepartureOrders/', [App\Http\Controllers\OrderController::class, 'undefined_user']);
-Route::get('/selected_tank_orders/{tank_number}', [App\Http\Controllers\OrderController::class, 'showSelected']);
+Route::get('/selected_tank_orders/{tank_number}', [App\Http\Controllers\OrderController::class, 'show_selected']);
 Route::get('/addDepartureOrder/{pass_number}', [App\Http\Controllers\OrderController::class, 'create']);
 Route::post('/departure_order_store/{pass_number}', [App\Http\Controllers\OrderController::class, 'store']);
 Route::get('/edit_departure_order/{id}', [App\Http\Controllers\OrderController::class, 'edit']);
