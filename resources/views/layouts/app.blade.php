@@ -50,29 +50,41 @@
       </nav>
 
       @if(Auth::user())
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">{{  Auth::user() -> pass_number }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/personalFile/{{Auth::user()->pass_number}}">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/user_documents/{{Auth::user()->pass_number}}">Documents</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/tankslst/{{Auth::user()->pass_number}}">Tanks</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/allDepartureOrders/{{Auth::user()->pass_number}}">Departure orders</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-@endif
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand">{{  Auth::user() -> pass_number }}</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/user_main_page/{{Auth::user()->pass_number}}">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/user_documents/{{Auth::user()->pass_number}}">Documents</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/user_tanks/{{Auth::user()->pass_number}}">Tanks</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/user_departure_orders/{{Auth::user()->pass_number}}">Departure orders</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        @if(Auth::user() -> pass_number === "AA001")
+        <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+          <div class="text-center text-sm text-gray-500 sm:text-left">
+            <div class="flex items-center">
+              <a href="/all_soldiers"><button class="btn btn-outline-warning btn-sm" type="button">Soldiers</button></a>
+              <a href="/all_tanks"><button class="btn btn-outline-warning btn-sm">Tanks</button></a>
+              <a href="/all_documents"><button class="btn btn-outline-warning btn-sm">Documents</button></a>
+              <a href="/all_departure_orders"><button class="btn btn-outline-warning btn-sm">Departure Orders</button></a>
+            </div>
+          </div>
+        </div>
+        @endif
+        @endif
     </div>
     <main class="py-4">
       @yield('content')

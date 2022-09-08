@@ -133,4 +133,13 @@ class OrderController extends Controller
 
     return view('/Models/order.selected_tank_orders')->with('tank', $tank)->with('orders', $orders);
     }
+
+    public function show_all()
+    {
+        $dep_orders = DB::table('departure_orders')
+        ->get();
+
+        return view('Models/order.all_departure_orders')
+        ->with('dep_orders', $dep_orders);
+    }
 }

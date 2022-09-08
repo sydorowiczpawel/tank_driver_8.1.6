@@ -1,30 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-
-{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">{{  Auth::user() -> pass_number }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/personalFile/{{Auth::user()->pass_number}}">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/user_documents/{{Auth::user()->pass_number}}">Documents</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="/tankslst/{{Auth::user()->pass_number}}">Tanks</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/allDepartureOrders/{{Auth::user()->pass_number}}">Departure orders</a>
-      </li>
-    </ul>
-  </div>
-</nav> --}}
-
 @if(Auth::user()->pass_number !== NULL )
 	<table class="table table-striped table-sm">
     <tr>
@@ -40,7 +16,7 @@
       <td>
         {{-- Zobacz szczegóły --}}
         <button class="btn btn-warning btn-sm">
-          <a href="/showTank/{{ $tank -> tank_number }}">
+          <a href="/show_tank/{{ $tank -> tank_number }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
           </a>
         </button>

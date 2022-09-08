@@ -2,17 +2,6 @@
 
 @section('content')
 <div class="container">
-
-  <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-    <div class="text-center text-sm text-gray-500 sm:text-left">
-      <div class="flex items-center">
-        <a href="all_soldiers"><button class="btn btn-outline-warning btn-sm" type="button">Soldiers</button></a>
-        <a href="all_tanks"><button class="btn btn-outline-warning btn-sm">Tanks</button></a>
-        <a href="all_documents"><button class="btn btn-outline-warning btn-sm">Documents</button></a>
-      </div>
-    </div>
-  </div>
-
   <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
     <div class="text-center text-sm text-gray-500 sm:text-left">
       <div class="flex items-center">
