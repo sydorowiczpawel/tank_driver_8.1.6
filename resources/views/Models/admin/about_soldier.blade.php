@@ -128,12 +128,13 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
     <tr>
       <th>Pojazd</th>
       <th>Seria</th>
       <th></th>
-      <th>Stany końcowe</th>
+      <th></th>
       <th></th>
     </tr>
     @foreach($dep_orders as $object)

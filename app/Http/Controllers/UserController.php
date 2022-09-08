@@ -93,6 +93,35 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        // $p_num = $request->input('pass_number');
+        $r = $request->input('rank');
+        // $n = $request->input('firstName');
+        // $s = $request->input('lastame');
+        $f = $request->input('function');
+        $p = $request->input('platoon');
+        // $e = $request->input('email');
+        // $pswd = $request->input('password');
+
+        DB::table('users')
+        ->where('id', $id)
+        ->update(
+            [
+                // 'pass_number'=>$p_num,
+                'rank'=>$r,
+                // 'firstName'=>$n,
+                // 'lastName'=>$s,
+                'function' => $f,
+                'platoon'=>$p,
+                // 'email'=>$e,
+                // 'password'=>$pswd
+            ]
+            );
+
+            return redirect('/all_soldiers');
+    }
+
+    public function define(Request $request, $id)
+    {
         $p_num = $request->input('pass_number');
         $r = $request->input('rank');
         // $n = $request->input('firstName');

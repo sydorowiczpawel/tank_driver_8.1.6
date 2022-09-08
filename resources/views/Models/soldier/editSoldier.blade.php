@@ -7,23 +7,34 @@
 			<div class="card">
 				<div class="card-body">
           @foreach($user as $object)
-          <form method="POST" action="/updateSoldier/{{$object -> id}}">
+          @if($object -> pass_number === NULL)
+            <form method="POST" action="/define_user/{{$object -> id}}">
+          @else
+            <form method="POST" action="/update_user/{{$object -> id}}">
+          @endif
           @endforeach
 					@csrf
 <!-- Pass Number -->
 					<div class="form-group row">
 						<label for="pass_number" class="col-md-4 col-form-label text-md-right">{{ __('Pass number') }}</label>
-						{{-- <label for="pass_number" class="col-md-4 col-form-label text-md-right">
+            @foreach($user as $object)
+            {{-- UŻYTKOWNIK ZWERYFIKOWANY --}}
+            @if($object -> pass_number !== NULL)
+						<label for="pass_number" class="col-md-4 col-form-label text-md-right">
               @foreach ($user as $u)
               {{ $u -> pass_number }}
               @endforeach
-            </label> --}}
-            <div class="col-md-6">
-              <input id="pass_number" type="text" class="form-control @error('pass_number') is-invalid @enderror" name="pass_number" value="{{ old('pass_number') }}" required autocomplete="pass_number" autofocus>
-                @error('pass_number')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                @enderror
-            </div>
+            </label>
+            {{-- UŻYTKOWNIK NIEZWERYFIKOWANY --}}
+            @else
+              <div class="col-md-6">
+                <input id="pass_number" type="text" class="form-control @error('pass_number') is-invalid @enderror" name="pass_number" value="{{ old('pass_number') }}" required autocomplete="pass_number" autofocus>
+                  @error('pass_number')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
+              </div>
+            @endif
+            @endforeach
 					</div>
 
 						<!-- Type rank -->
@@ -137,7 +148,7 @@
 						<!-- Register Button -->
 						<div class="form-group row mb-0">
 							<div class="col-md-6 offset-md-4">
-								<button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
+								<button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
 							</div>
 						</div>
           </form>

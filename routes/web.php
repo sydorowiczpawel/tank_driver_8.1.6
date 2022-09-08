@@ -29,9 +29,10 @@ Route::post('/selected_tank_orders/{tank_number}', [App\Http\Controllers\TankCon
 // USER
 Route::get('/personalFile/{pass_number}', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/personalFile/', [App\Http\Controllers\UserController::class, 'undefined_user']);
-Route::get('/addUser', [App\Http\Controllers\UserController::class, 'create']);
+Route::get('/add_user', [App\Http\Controllers\UserController::class, 'create']);
 Route::get('/editSoldier/{id}', [App\Http\Controllers\UserController::class, 'edit']);
-Route::post('/updateSoldier/{id}', [App\Http\Controllers\UserController::class, 'update']);
+Route::post('/update_user/{id}', [App\Http\Controllers\UserController::class, 'update']);
+Route::post('/define_user/{id}', [App\Http\Controllers\UserController::class, 'define']);
 Route::post('/soldierStore', [App\Http\Controllers\UserController::class, 'store']);
 Route::get('/delete_user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 Route::get('/waitingForApproval', function() {return view ('Models/soldier.waiting');});
