@@ -15,8 +15,9 @@ Route::get('/admin', [App\Http\Controllers\UserController::class, 'adminPanel'])
 Route::get('/all_documents', [App\Http\Controllers\DocumentController::class, 'all_docs']);
 Route::get('/all_soldiers', [App\Http\Controllers\UserController::class, 'all_users']);
 Route::get('/all_tanks', [App\Http\Controllers\TankController::class, 'all_tanks']);
-Route::get('/all_departure_orders', [App\Http\Controllers\UserController::class, 'allDepartureOrders']);
 Route::get('/about_soldier/{pass_number}', [App\Http\Controllers\UserController::class, 'about_soldier']);
+Route::post('/departure_order_store', [App\Http\Controllers\OrderController::class, 'adminStore']);
+Route::get('/admin_addDepartureOrder', [App\Http\Controllers\OrderController::class, 'create_as_admin']);
 
 // TANK
 Route::get('/user_tanks/{pass_number}', [App\Http\Controllers\TankController::class, 'index']);

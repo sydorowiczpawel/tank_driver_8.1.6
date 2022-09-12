@@ -17,25 +17,42 @@ class OrderController extends Controller
 		-> where('pass_number', $p_num)
 		-> get();
 
-		return view('/Models/order.allDepartureOrders')
+		return view('/Models/order.user_departure_orders')
 		-> with('dep_orders', $dep_orders);
 	}
 
     public function undefined_user()
     {
         $mssg = "Twoje konto nie zostało jeszcze zweryfikowane przez administratora. Daj mu chwilę, jest zarobiony ;)";
-        return view('Models\order.allDepartureOrders')
+        return view('Models\order.user_departure_orders')
         -> with('mssg', $mssg);
     }
 
     public function create($p_num)
     {
-        $tanks = DB::table('tanks')
+        $tank = DB::table('tanks')
 		-> where('pass_number', $p_num)
 		-> get();
 
+        $soldier = DB::table('departure_orders')
+        ->get();
+
     return view('Models\order.addDepartureOrder')
-		-> with('tanks', $tanks);
+		-> with('tank', $tank)
+        -> with('soldier', $soldier);
+    }
+
+    public function create_as_admin()
+    {
+        $tank = DB::table('tanks')
+		-> get();
+
+        $soldier = DB::table('users')
+        ->get();
+
+    return view('Models\order.addDepartureOrder')
+		-> with('tank', $tank)
+        -> with('soldier', $soldier);
     }
 
     public function store(Request $request, $p_num)
@@ -139,7 +156,7 @@ class OrderController extends Controller
         $dep_orders = DB::table('departure_orders')
         ->get();
 
-        return view('Models/order.all_departure_orders')
+        return view('Models/admin.all_departure_orders')
         ->with('dep_orders', $dep_orders);
     }
 }

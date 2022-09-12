@@ -2,14 +2,43 @@
 
 @section('content')
 <div class="container">
-	<form method="POST" action="/departure_order_store/{{ Auth::user()->pass_number}}">
+  @if(Auth::user() -> pass_number === "AA001")
+	<form method="POST" action="/admin_departure_order_store">
+  @else
+  <form method="POST" action="/departure_order_store/{{ Auth::user()->pass_number}}">
 		@csrf
+  @endif
+
+{{-- Pass number if ADMIN --}}
+    @if((Auth::user() -> pass_number) === "AA001")
+		<div class="form-group row">
+			<label for="pass_number" class="col-md-4 col-form-label text-md-right">{{ __('Pass number') }}</label>
+			<div class="col-md-6">
+				<select id="pass_number" name="pass_number" type="text" class="form-control" >
+					@foreach ($soldier as $object)
+					<option>{{ $object -> pass_number }}</option>
+					@endforeach
+				</select>
+      </div>
+		</div>
+    @else
+
+    {{-- Pass number if USER --}}
+    <div class="form-group row">
+      <label for="pass_number" class="col-md-4 col-form-label text-md-right">{{ __('Pass number') }}</label>
+      <div class="col-md-6">
+        <label for="pass_number" class="col-md-4 col-form-label text-md-right">{{Auth::user() -> pass_number}}</label>
+      </div>
+    </div>
+    @endif
+
+{{-- Tank number --}}
 		<div class="form-group row">
 			<label for="tank_number" class="col-md-4 col-form-label text-md-right">{{ __('Tank number') }}</label>
 			<div class="col-md-6">
-				<select id="tank_number" name="tank_number" type="text" class="form-control" >
-					@foreach ($tanks as $tank)
-					<option>{{ $tank -> tank_number }}</option>
+				<select id="tank_number" name="tank_number" type="text" class="form-control" placeholder="wybierz czomk">
+					@foreach ($tank as $object)
+					<option>{{ $object -> tank_number }}</option>
 					@endforeach
 				</select>
     </div>
